@@ -24,7 +24,15 @@ echo "<pre>";
 var_dump($_POST);
 echo"</pre>";
 
-$scoops = $_POST['scoops'];
+// get data from post array
+// server side validation
+if(!empty($scoops)){
+    $scoops = $_POST['scoops'];
+}else {
+    echo"<p>Enter Scoops!</p>";
+    return;
+}
+
 $flavors = $_POST['flavor'];
 $flavorString = implode(",", $flavors);
 $cone = $_POST['cone'];
